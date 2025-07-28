@@ -1,0 +1,11 @@
+ini_open(working_directory + "\settings_mw.ini");
+global.healthSync = ini_read_real("Settings", "HealthSync", 0);
+global.ammoSync = ini_read_real("Settings", "AmmoSync", 0);
+global.itemToggleSync = ini_read_real("Settings", "ItemToggleSync", 0);
+global.eventSync = ini_read_real("Settings", "EventSync", 0);
+global.mapSync = ini_read_real("Settings", "MapSync", 0);
+global.mapPlayerIconSync = ini_read_real("Settings", "PlayerMapLocationSync", 1);
+global.shortcuts = ini_read_real("Settings", "SAXModeShortcuts", 0);
+oServer.syncedDifficulty = ini_read_real("Settings", "Difficulty", 1);
+oServer.syncedELM = ini_read_real("Settings", "ExtremeLabMetroids", 0);
+ini_close();
