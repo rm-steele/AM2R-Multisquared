@@ -1,5 +1,6 @@
 if (instance_exists(oMWConnector))
     exit;
+
 /*
  * if the connector receives a multitroid packet it will crash.
  * it'd probably be possible to detect if it's a multitroid packet and deny it,

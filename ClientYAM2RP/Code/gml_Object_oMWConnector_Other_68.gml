@@ -10,10 +10,10 @@ switch (type_event)
         socket = ds_map_find_value(async_load, "socket");
         popup_text("AP Connected");
         break;
-    
+
     case 2:
         socket = -4;
-    
+
     case 3:
         var newline = "
 ";

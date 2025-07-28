@@ -43,7 +43,7 @@ if (active)
         if (global.curropt == 2)
         {
             sfx_play(188);
-            
+
             /*
              * if the connector receives a multitroid packet it will crash.
              * it'd probably be possible to detect if it's a multitroid packet and deny it,
@@ -55,7 +55,7 @@ if (active)
                 popup_text_ext("Disconnect from Multitroid first", 180);
                 exit;
             }
-            
+
             if (!instance_exists(oMWConnector))
                 instance_create(0, 0, oMWConnector);
         }

@@ -350,15 +350,18 @@ switch (type_event)
                 break;
             
             case 104:
-                var playerHealth = buffer_read(_buffer, buffer_s16);
-                var missiles = buffer_read(_buffer, buffer_s16);
-                var smissiles = buffer_read(_buffer, buffer_u8);
-                var pbombs = buffer_read(_buffer, buffer_u8);
-                var clientID = buffer_read(_buffer, buffer_u8);
-                global.playerhealth = playerHealth;
-                global.missiles = missiles;
-                global.smissiles = smissiles;
-                global.pbombs = pbombs;
+                global.playerhealth -= buffer_read(_buffer, buffer_s16);
+                global.playerhealth = clamp(global.playerhealth, 0, global.maxhealth);
+                global.playerhealthPrev = global.playerhealth;
+                global.missiles -= buffer_read(_buffer, buffer_s16);
+                global.missiles = clamp(global.missiles, 0, global.maxmissiles);
+                global.missilesPrev = global.missiles;
+                global.smissiles -= buffer_read(_buffer, buffer_s16);
+                global.smissiles = clamp(global.smissiles, 0, global.maxsmissiles);
+                global.smissilesPrev = global.smissiles;
+                global.pbombs -= buffer_read(_buffer, buffer_s16);
+                global.pbombs = clamp(global.pbombs, 0, global.maxpbombs);
+                global.pbombsPrev = global.pbombs;
                 break;
             
             case 105:
