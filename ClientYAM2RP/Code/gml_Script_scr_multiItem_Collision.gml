@@ -1,6 +1,9 @@
 if (!remoteItem)
     exit;
 
+if (multiItem > 19 && multiItem < 40)
+    multiItem -= 20;
+
 if (multiItem < 15)
     global.inventory[multiItem] = 1;
 
