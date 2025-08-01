@@ -14,6 +14,8 @@ switch (multiItem)
         btn1_name = "Fire";
         break;
     
+    // case 1 is mapped where case 45 is because item ID 1 is power grip, which got scrapped for AM2R
+
     case 2:
         sprite_index = sItemSpiderBall;
         text1 = get_text("Items", "SpiderBall");
@@ -200,6 +202,10 @@ switch (multiItem)
         btn1_name = "Fire";
         break;
     
+    case 21:
+        sprite_index = sItemChinyPowerGrip;
+        break;
+
     case 22:
         sprite_index = sItemChinySpiderBall;
         text1 = get_text("Items", "SpiderBall");
@@ -271,7 +277,6 @@ switch (multiItem)
         sprite_index = sItemChinySpeedBooster;
         text1 = get_text("Items", "SpeedBooster");
         text2 = get_text("Items", "SpeedBooster_Text");
-        image_speed = 0.5;
         break;
     
     case 28:
@@ -397,6 +402,7 @@ switch (multiItem)
         sprite_index = sMWTrap_SuperMissileFusion;
         break;
     
+    case 1:
     case 45:
         sprite_index = sMWTrap_PowerGrip;
         break;
