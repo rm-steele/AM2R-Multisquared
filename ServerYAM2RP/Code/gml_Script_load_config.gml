@@ -2,6 +2,8 @@ ini_open(working_directory + "\settings_mw.ini");
 global.healthSync = ini_read_real("Settings", "HealthSync", 0);
 global.ammoSync = ini_read_real("Settings", "AmmoSync", 0);
 global.itemToggleSync = ini_read_real("Settings", "ItemToggleSync", 0);
+global.itemSync = ini_read_real("Settings", "CollectedItemSync", 0);
+global.metroidSync = ini_read_real("Settings", "MetroidSync", 0);
 global.eventSync = ini_read_real("Settings", "EventSync", 0);
 global.mapSync = ini_read_real("Settings", "MapSync", 0);
 global.mapPlayerIconSync = ini_read_real("Settings", "PlayerMapLocationSync", 1);

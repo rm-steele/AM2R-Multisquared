@@ -162,20 +162,29 @@ if (global.Page || global.syncpage)
 {
     if (global.theme == 2)
     {
-        draw_set_alpha(0.6000000000000001);
+        draw_set_alpha(0.6);
         draw_rectangle_colour(0, 0, room_width, room_height, make_color_rgb(160, 160, 160), make_color_rgb(160, 160, 160), c_white, c_white, 0);
         draw_set_alpha(1);
     }
     else if (global.theme == 1)
     {
-        draw_set_alpha(0.6000000000000001);
+        draw_set_alpha(0.6);
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, make_color_rgb(60, 60, 60), make_color_rgb(60, 60, 60), 0);
         draw_set_alpha(1);
     }
     else if (global.theme == 0)
     {
-        draw_set_alpha(0.6000000000000001);
+        draw_set_alpha(0.6);
         draw_rectangle_colour(0, 0, room_width, room_height, make_color_rgb(40, 40, 40), make_color_rgb(40, 40, 40), make_color_rgb(100, 100, 100), make_color_rgb(100, 100, 100), 0);
         draw_set_alpha(1);
     }
 }
+
+draw_set_halign(fa_left);
+draw_set_valign(fa_bottom);
+draw_text(1296, 288, "Logic Breaking Settings#You should ask your host before turning them on!");
+
+draw_set_halign(fa_right);
+draw_text(2544, 288, "Single-Slot Multiplayer Settings#Consider only turning these on if players are all connecting to#the same slot instead of each connecting to a different slot.");
+
+draw_set_valign(fa_top);

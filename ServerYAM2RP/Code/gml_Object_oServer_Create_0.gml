@@ -144,5 +144,3 @@ global.doomtime = 2147483647;
 global.MetCount = 41;
 global.rando = 1;
 global.exp_rollbackhits = 1;
-global.metroidSync = 0;
-global.itemSync = 0;

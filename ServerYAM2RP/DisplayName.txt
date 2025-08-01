@@ -1,1 +1,1 @@
-AM2R Multisquared Server 1.1.0-dev
+AM2R Multiworld Server 1.2.0

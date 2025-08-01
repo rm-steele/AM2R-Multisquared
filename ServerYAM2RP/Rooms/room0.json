@@ -262,7 +262,7 @@
     },
     {
       "x": 1248,
-      "y": 240,
+      "y": 304,
       "object_definition": "oHealthSync",
       "instance_id": 0,
       "creation_code": null,
@@ -276,7 +276,7 @@
     },
     {
       "x": 1248,
-      "y": 272,
+      "y": 336,
       "object_definition": "oAmmoSync",
       "instance_id": 0,
       "creation_code": null,
@@ -289,7 +289,7 @@
       "image_index": 0
     },
     {
-      "x": 1312,
+      "x": 1296,
       "y": 336,
       "object_definition": "oItemToggleSync",
       "instance_id": 0,
@@ -303,8 +303,8 @@
       "image_index": 0
     },
     {
-      "x": 1312,
-      "y": 272,
+      "x": 2528,
+      "y": 336,
       "object_definition": "oEventSync",
       "instance_id": 0,
       "creation_code": null,
@@ -317,7 +317,7 @@
       "image_index": 0
     },
     {
-      "x": 1248,
+      "x": 2528,
       "y": 304,
       "object_definition": "oMapSync",
       "instance_id": 0,
@@ -332,7 +332,7 @@
     },
     {
       "x": 1248,
-      "y": 336,
+      "y": 368,
       "object_definition": "oMapPlayerIconSync",
       "instance_id": 0,
       "creation_code": null,
@@ -513,7 +513,7 @@
       "image_index": 0
     },
     {
-      "x": 1312,
+      "x": 1296,
       "y": 304,
       "object_definition": "oShortcutsToggle",
       "instance_id": 0,
@@ -612,7 +612,7 @@
     },
     {
       "x": 1248,
-      "y": 368,
+      "y": 432,
       "object_definition": "oExperimentalPage",
       "instance_id": 0,
       "creation_code": "gml_RoomCC_room0_EXPPage_Left",
@@ -625,11 +625,39 @@
       "image_index": 0
     },
     {
-      "x": 1312,
-      "y": 368,
+      "x": 1296,
+      "y": 432,
       "object_definition": "oExperimentalPage",
       "instance_id": 0,
       "creation_code": "gml_RoomCC_room0_EXPPage_Right",
+      "scale_x": 1,
+      "scale_y": 1,
+      "color": 4294967295,
+      "rotation": 0,
+      "pre_create_code": null,
+      "image_speed": 0,
+      "image_index": 0
+    },
+    {
+      "x": 2528,
+      "y": 368,
+      "object_definition": "oItemSync",
+      "instance_id": 0,
+      "creation_code": null,
+      "scale_x": 1,
+      "scale_y": 1,
+      "color": 4294967295,
+      "rotation": 0,
+      "pre_create_code": null,
+      "image_speed": 0,
+      "image_index": 0
+    },
+    {
+      "x": 2528,
+      "y": 400,
+      "object_definition": "oMetroidSync",
+      "instance_id": 0,
+      "creation_code": null,
       "scale_x": 1,
       "scale_y": 1,
       "color": 4294967295,
