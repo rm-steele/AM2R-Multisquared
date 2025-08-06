@@ -15,7 +15,6 @@ for (var i = 0; i < sockets; i++)
     network_send_packet(ds_list_find_value(playerList, i), buffer, buffer_tell(buffer));
 
 network_destroy(server);
-network_destroy(webpanel);
 
 if (buffer_exists(buffer))
     buffer_delete(buffer);

@@ -80,7 +80,7 @@ if (ds_list_size(idList) > 0)
             else
                 color = 16777215;
             
-            switch (arrList[0, 0])
+            switch (arrList[0, 4])
             {
                 case 1:
                     color = 32768;
