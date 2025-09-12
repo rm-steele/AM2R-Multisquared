@@ -2575,7 +2575,7 @@ if (state == GRABBEDGAMMA)
     
     if (global.currentsuit == 2)
     {
-        if (global.iventory[5] == 0)
+        if (global.inventory[5] == 0)
             global.playerhealth -= (global.mod_grabbedgammaVS * oControl.mod_diffmult);
         else
             global.playerhealth -= (global.mod_grabbedgammaGS * oControl.mod_diffmult);
