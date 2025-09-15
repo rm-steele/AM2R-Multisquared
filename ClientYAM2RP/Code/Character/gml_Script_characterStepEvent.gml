@@ -4062,8 +4062,11 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
         global.ohkotraptimer--;
         
         if (global.playerhealth > 1)
+        {
             global.playerhealth = global.playerhealth / 2;
-        
+            global.playerhealthPrev = global.playerhealth;
+        }
+
         if (global.ohkotraptimer == 0)
         {
             global.playerhealth = global.maxhealth;
