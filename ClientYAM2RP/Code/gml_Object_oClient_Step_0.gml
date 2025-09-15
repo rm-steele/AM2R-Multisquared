@@ -2,6 +2,14 @@ if (!connected)
 {
     if (isConnected >= 0)
     {
+        // clear the socket ID of the mw connector if they're the same, becuase GM doesn't
+        // send a disconnect event but decides to re-use the socket ID
+        // not doing this causes multitroid to stop getting packets for some reason, maybe
+        // it gets dono-walled by the server for not sending a reply? i don't know why oClient
+        // doesn't send a reply, though
+        if (instance_exists(oMWConnector) && socket == oMWConnector.socket)
+            oMWConnector.socket = -4;
+
         connected = 1;
         global.TryConnect = 0;
         popup_text("Connected");

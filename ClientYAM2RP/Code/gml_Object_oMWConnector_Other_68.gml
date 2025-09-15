@@ -1,24 +1,55 @@
-if (ds_map_find_value(async_load, "id") != socket && socket != -4)
-    exit;
-
 var type_event = ds_map_find_value(async_load, "type");
-var ip = ds_map_find_value(async_load, "ip");
+
+if ((ds_map_find_value(async_load, "id") != socket && socket != -4) || (socket == -4 && type_event != network_type_connect))
+    exit;
 
 switch (type_event)
 {
-    case 1:
+    case network_type_connect:
         socket = ds_map_find_value(async_load, "socket");
         popup_text("AP Connected");
         break;
 
-    case 2:
+    case network_type_disconnect:
         socket = -4;
+        break;
 
-    case 3:
+    case network_type_data:
         var newline = "
 ";
         var _buffer = ds_map_find_value(async_load, "buffer");
+        var byte = 0x41; // placeholder ascii A in case it doesn't get overwritten
+        
+        // parse the buffer as a series of u8's to see if it's a string within specifications
+        // we can't just try to read a string from the buffer, as that will generate an error. even though it's
+        // ignorable, i know people will still report it as an error or hit abort
+        buffer_seek(_buffer, buffer_seek_start, 0); // not having this made it read out of bounds for some reason, idk why
+        repeat(ds_map_find_value(async_load, "size")) // iterate the buffer to see if it's a valid packet
+        {
+            byte = buffer_read(_buffer, buffer_u8);
+            if(byte == 0x0A) // if it's a newline, continue checking
+                continue; // also note that if the packet is only newlines, process to avoid a timeout
+            if(byte == 0x7B) // if it's an open bracket, start processing it
+                break;
+            if(byte == 0x00) // if it's a null, break, that's the end of the packet
+                break;
+                
+            // otherwise, don't process it and close the connection, it's not a valid packet
+            network_destroy(socket);
+            socket = -4;
+            exit;
+        }
+        
+        buffer_seek(_buffer, buffer_seek_start, 0);
         var receivedString = buffer_read(_buffer, buffer_string);
+        
+        if (!is_string(receivedString))
+        {
+            network_destroy(socket);
+            socket = -4;
+            exit;
+        }
+        
         var itemMap = json_decode(receivedString);
         var command = ds_map_find_value(itemMap, "cmd");
         var locationset = 0;
