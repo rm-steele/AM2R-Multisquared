@@ -261,6 +261,12 @@ switch (type_event)
             if (receivedanything)
                 sfx_play(29);
         }
+        else if ((command == "deathlink" || command == "whatkillsyou") && instance_exists(oCharacter))
+        {
+            global.deathlinkState = 1; // 1 means receiving a deathlink (so don't send one)
+            with (oControl)
+                event_user(1);
+        }
 
         var returnMap = ds_map_create();
         var checkList = ds_list_create();
@@ -282,11 +288,13 @@ switch (type_event)
         ds_map_add(returnMap, "SlotPass", global.slotPass);
         ds_map_add(returnMap, "SeedReceived", global.seedreceived);
         ds_map_add(returnMap, "GameCompleted", global.mwcompleted);
+        ds_map_add(returnMap, "Deathlinked", global.deathlinkState == 2); // 2 means sending a death
         buffer = buffer_create(1024, buffer_grow, 1);
         buffer_seek(buffer, buffer_seek_start, 0);
         buffer_write(buffer, buffer_text, json_encode(returnMap));
         buffer_write(buffer, buffer_text, newline);
         var result = network_send_raw(socket, buffer, buffer_tell(buffer));
+        global.deathlinkState = 0; // now that it's been sent down the wire, clear it
         buffer_delete(buffer);
         ds_map_destroy(itemMap);
         ds_map_destroy(returnMap);
