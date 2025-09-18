@@ -45,6 +45,8 @@ if (active && oControl.kMenu2 && oControl.kMenu2PushedSteps == 0 && instance_num
         
         with (oOptionsMW)
             active = 0;
+
+        global.warptoship = 0;
     }
     
     if (global.ssmode == 2)
