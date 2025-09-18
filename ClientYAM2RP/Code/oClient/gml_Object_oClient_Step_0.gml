@@ -612,6 +612,8 @@ if (instance_exists(id))
     }
 }
 
+syncedDifficulty = global.difficulty;
+/*
 switch (syncedDifficulty)
 {
     case 0:
@@ -729,6 +731,7 @@ switch (syncedDifficulty)
         
         break;
 }
+*/
 
 if (oControl.mod_monstersextremecheck != elm)
     oControl.mod_monstersextremecheck = elm;
