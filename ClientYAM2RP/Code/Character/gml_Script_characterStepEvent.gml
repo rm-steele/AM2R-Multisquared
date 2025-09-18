@@ -1384,21 +1384,12 @@ if (state == SAVINGFX)
     {
         sfx_play(32);
         
-        if (!instance_exists(oClient))
-        {
-            instance_create(x, y, oSaveFX);
-            instance_create(x, y, oSaveSparks);
-        }
-        
         popup_text(get_text("Notifications", "GameSaved"));
         save_game(global.savedirectory + string(global.saveslot + 1));
         refill_heath_ammo();
     }
     
-    if (statetime == 6 && instance_exists(oClient))
-        state = IDLE;
-    
-    if (statetime == 230 && !instance_exists(oClient))
+    if (statetime == 6)
         state = IDLE;
 }
 
