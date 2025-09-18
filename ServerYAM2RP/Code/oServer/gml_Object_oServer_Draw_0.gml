@@ -14,6 +14,7 @@ else
     strMin = " Min.";
 */
 
+/*
 var diffStr;
 
 switch (syncedDifficulty)
@@ -34,6 +35,7 @@ switch (syncedDifficulty)
         diffStr = "Fusion";
         break;
 }
+*/
 
 var ELMStr;
 
@@ -60,10 +62,10 @@ draw_text(5, 5, "Server Status:   " + string(str));
 //draw_text(5, 85, "X Power: " + string(global.damageMult));
 //draw_text(5, 115, "Metroids Until A6: " + string(global.MetCount));
 //draw_text(220, 115, "| Metroids Remaining: " + string(global.monstersleft));
-draw_text(5, 145, "Difficulty: " + string(diffStr));
+//draw_text(5, 145, "Difficulty: " + string(diffStr));
 //draw_text(170, 145, "|  Seed: " + string(global.seed));
-draw_text(5, 175, "Extreme Lab Metroids: " + string(ELMStr));
-draw_text(5, 205, "Players(" + string(ds_list_size(playerList)) + "/" + string(maxClients) + "): ");
+draw_text(5, 55, "Extreme Lab Metroids: " + string(ELMStr));
+draw_text(5, 85, "Players(" + string(ds_list_size(playerList)) + "/" + string(maxClients) + "): ");
 
 if (ds_list_size(idList) > 0)
 {
@@ -147,13 +149,13 @@ if (ds_list_size(idList) > 0)
                     break;
             }
             
-            draw_text_color(4, 206 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
-            draw_text_color(6, 206 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
-            draw_text_color(4, 207 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
-            draw_text_color(6, 207 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
-            draw_text_color(4, 208 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
-            draw_text_color(6, 208 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
-            draw_text_color(5, 207 + ((i + 1) * 30), arrList[0, 2], color, color, color, color, 1);
+            draw_text_color(4, 86 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
+            draw_text_color(6, 86 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
+            draw_text_color(4, 87 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
+            draw_text_color(6, 87 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
+            draw_text_color(4, 88 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
+            draw_text_color(6, 88 + ((i + 1) * 30), arrList[0, 2], c_black, c_black, c_black, c_black, 1);
+            draw_text_color(5, 87 + ((i + 1) * 30), arrList[0, 2], color, color, color, color, 1);
         }
     }
 }

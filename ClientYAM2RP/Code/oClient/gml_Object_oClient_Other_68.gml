@@ -1456,40 +1456,7 @@ switch (type_event)
                 
                 break;
 
-            case 29:
-                var syncDiff = buffer_read(_buffer, buffer_u8);
-                
-                if (syncDiff != syncedDifficulty)
-                {
-                    syncedDifficulty = syncDiff;
-                    var str;
-                    
-                    switch (syncedDifficulty)
-                    {
-                        case 0:
-                            str = "Easy";
-                            break;
-                        
-                        case 1:
-                            str = "Normal";
-                            break;
-                        
-                        case 2:
-                            str = "Hard";
-                            break;
-                        
-                        case 3:
-                            str = "Fusion";
-                            break;
-                    }
-                    
-                    popup_text(str);
-                }
-                
-                if (instance_exists(oOptionsMod) && oOptionsMod.menuDifficulty != syncedDifficulty)
-                    oOptionsMod.menuDifficulty = syncedDifficulty;
-                
-                break;
+            // case 29 is the difficulty sync case, which i have un-personed
             
             case 30:
                 var syncELM = buffer_read(_buffer, buffer_u8);

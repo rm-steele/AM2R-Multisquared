@@ -28,5 +28,5 @@ if (instance_exists(oServer))
     else
         str2 = "In The Menus";
     
-    draw_text(x + 140, y, str2);
+    draw_text(x + 160, y, str2);
 }
