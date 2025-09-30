@@ -3518,7 +3518,8 @@ else
 if (plantdrain > 0)
 {
     plantdrain -= 1;
-    
+    global.lastDamageIndex = oPlantSpikes;
+
     if ((instance_exists(oMeboid) || instance_exists(oMeboid2)) && state != 60)
     {
         switch (global.currentsuit)

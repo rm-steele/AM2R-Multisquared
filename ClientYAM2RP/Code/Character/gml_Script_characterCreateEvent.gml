@@ -252,3 +252,4 @@ global.multiDamageCollision = 0;
 elev_dir = 0;
 xFric = 0;
 yFric = 0;
+global.lastDamageIndex = 0;

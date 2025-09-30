@@ -1,0 +1,10 @@
+targetroom = 402;
+targetx = 128;
+targety = 16;
+height = 48;
+direction = 270;
+camstartx = 128;
+camstarty = 120;
+transitionx = 128;
+transitiony = -4;
+shortcut = 1;

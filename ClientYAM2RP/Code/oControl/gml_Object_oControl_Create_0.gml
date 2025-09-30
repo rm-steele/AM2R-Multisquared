@@ -574,3 +574,4 @@ global.saveEndChecker = 0;
 global.revived = 0;
 global.deathlinkState = 0; // 0 = nothing; 1 = receiving a deathlink (don't send a deathlink); 2 = sending a deathlink
 global.warptoship = 0;
+global.lastDamageIndex = 0;

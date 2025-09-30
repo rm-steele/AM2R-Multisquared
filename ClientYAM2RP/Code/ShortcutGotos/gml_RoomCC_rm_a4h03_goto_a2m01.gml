@@ -1,0 +1,10 @@
+targetroom = 401;
+targetx = 624;
+targety = 144;
+height = 48;
+direction = 180;
+camstartx = 480;
+camstarty = 128;
+transitionx = 316 + (oControl.widescreen_space / 2);
+transitiony = 144;
+shortcut = 1;

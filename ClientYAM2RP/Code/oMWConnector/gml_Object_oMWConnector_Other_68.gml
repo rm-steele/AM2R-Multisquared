@@ -81,6 +81,7 @@ switch (type_event)
             var emptrapcount = 0;
             var ohkotrapcount = 0;
             var touhoutrapcount = 0;
+            var wrongwarptrapcount = 0;
             var prevtanks = global.dnatanks;
             global.dnatanks = 0;
             var itemsList = ds_map_find_value(itemMap, "items");
@@ -146,6 +147,10 @@ switch (type_event)
                 else if (item == 26)
                 {
                     touhoutrapcount++;
+                }
+                else if (item == 27)
+                {
+                    wrongwarptrapcount++;
                 }
             }
 
@@ -251,12 +256,20 @@ switch (type_event)
                 popup_text("Bullet Hell Begin");
             }
 
+            if((wrongwarptrapcount - global.wrongwarptraps) > 0)
+            {
+                receivedanything = 1;
+                global.warpsleft += (wrongwarptrapcount - global.wrongwarptraps)
+                popup_text("Curse of the Maze")
+            }
+
             global.touhoutraps = touhoutrapcount;
             global.ohkotraps = ohkotrapcount;
             global.floodtraps = floodtrapcount;
             global.tosstraps = tosstrapcount;
             global.shorttraps = shorttrapcount;
             global.emptraps = emptrapcount;
+            global.wrongwarptraps = wrongwarptrapcount;
 
             if (receivedanything)
                 sfx_play(29);
