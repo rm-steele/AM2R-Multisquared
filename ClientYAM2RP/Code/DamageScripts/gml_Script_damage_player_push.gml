@@ -17,40 +17,57 @@ if (argument3 == 0)
     }
 }
 
+if (global.godmode)
+    damage_taken = 0;
+
 if (global.playerhealth > 0)
 {
-    with (oCharacter)
+    global.lastDamageIndex = object_index;
+    with (other.id)
     {
-        if ((state != HURT && invincible == 0) || (argument4 == 1 && statetime > 2))
+        if (state != 41 && walljumping == 0)
         {
             if (canbehit)
             {
-                if (state == BALL || state == AIRBALL || state == SPIDERBALL || sjball == 1)
+                if (state == BALL || state == AIRBALL || state == SPIDERBALL || ((state == SUPERJUMP || state == SJSTART || state == SJEND) && sjball == 1))
                 {
                     sjball = 1;
-                    fixedx = 12;
+                    fixedx = 8;
                     sball = 0;
+                    state = HURT;
+                    canturn = 0;
+                    
+                    if (other.x >= x)
+                        xVel = -argument4;
+                    
+                    if (other.x < x)
+                        xVel = argument4;
+                    
+                    yVel = -3;
                 }
                 else
                 {
                     sjball = 0;
+                    state = 41;
+                    
+                    if (argument1 == 1)
+                    {
+                        facing = LEFT;
+                        xVel = argument4;
+                    }
+                    
+                    if (argument1 == -1)
+                    {
+                        facing = RIGHT;
+                        xVel = -argument4;
+                    }
                 }
                 
-                state = HURT;
-                statetime = 0;
-                canturn = 0;
                 image_index = 0;
-                
-                if (other.x >= x)
-                    xVel = -argument1;
-                
-                if (other.x < x)
-                    xVel = argument1;
-                
-                yVel = argument2;
+                statetime = 0;
                 sfx_play(1);
-                ctrl_vibrate(0.5, 0.5, 10);
-                invincible = 60;
+                invincible = argument2;
+                ctrl_vibrate(1, 1, 15);
                 
                 if (inwater)
                 {

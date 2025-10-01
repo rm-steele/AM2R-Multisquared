@@ -352,6 +352,8 @@ switch (type_event)
             case 104:
                 global.playerhealth -= buffer_read(_buffer, buffer_s16);
                 global.playerhealth = clamp(global.playerhealth, 0, global.maxhealth);
+                if (global.playerhealth < global.playerhealthPrev)
+                    global.lastDamageIndex = oClient;
                 global.playerhealthPrev = global.playerhealth;
                 global.missiles -= buffer_read(_buffer, buffer_s16);
                 global.missiles = clamp(global.missiles, 0, global.maxmissiles);

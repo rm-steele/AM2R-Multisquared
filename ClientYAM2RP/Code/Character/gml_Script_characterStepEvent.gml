@@ -2551,6 +2551,7 @@ if (state == CLIMBING)
 
 if (state == GRABBEDGAMMA)
 {
+    global.lastDamageIndex = oMGamma;
     yVel = 0;
     xVel = 0;
     x = round(oMGamma.x + oMGamma.legba1x + oMGamma.legba2x + (8 * oMGamma.facing));
@@ -3493,6 +3494,7 @@ chStepFire();
 
 if (global.watertype == 1 && inwater && global.currentsuit < 2)
 {
+    global.lastDamageIndex = oLavaSurface;
     if (burning == 0)
         sfx_loop(26);
     
@@ -3571,6 +3573,7 @@ else
 
 if (monster_drain > 0)
 {
+    global.lastDamageIndex = oMonster;
     monster_drain -= 1;
     dash = 0;
     speedboost = 0;
@@ -3621,6 +3624,7 @@ else
 
 if (queen_drain > 0)
 {
+    global.lastDamageIndex = oQueen;
     dash = 0;
     speedboost = 0;
     global.playerhealth -= 0.1;

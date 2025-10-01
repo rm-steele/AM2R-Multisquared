@@ -277,6 +277,7 @@ switch (type_event)
         else if ((command == "deathlink" || command == "whatkillsyou") && instance_exists(oCharacter))
         {
             global.deathlinkState = 1; // 1 means receiving a deathlink (so don't send one)
+            global.lastDamageIndex = oMWConnector;
             with (oControl)
                 event_user(1);
         }
@@ -302,6 +303,7 @@ switch (type_event)
         ds_map_add(returnMap, "SeedReceived", global.seedreceived);
         ds_map_add(returnMap, "GameCompleted", global.mwcompleted);
         ds_map_add(returnMap, "Deathlinked", global.deathlinkState == 2); // 2 means sending a death
+        ds_map_add(returnMap, "CauseOfDeath", object_get_name(global.lastDamageIndex)); // object name of what hit you last
         buffer = buffer_create(1024, buffer_grow, 1);
         buffer_seek(buffer, buffer_seek_start, 0);
         buffer_write(buffer, buffer_text, json_encode(returnMap));

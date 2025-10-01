@@ -22,9 +22,10 @@ if (global.godmode)
 
 if (global.playerhealth > 0)
 {
+    global.lastDamageIndex = object_index;
     with (other.id)
     {
-        if (state != 41 && walljumping == 0)
+        if (state != 39 && walljumping == 0)
         {
             if (canbehit)
             {
@@ -47,7 +48,7 @@ if (global.playerhealth > 0)
                 else
                 {
                     sjball = 0;
-                    state = 41;
+                    state = 39;
                     
                     if (argument1 == 1)
                     {
