@@ -9,7 +9,7 @@ with (oSS_Fg)
 
 tip[0] = get_text("PauseMenu", "Resume_Tip");
 tip[1] = get_text("PauseMenu", "Restart_Tip");
-tip[2] = "Load your last save, but place you at Landing Site";
+tip[2] = "Load your last save, but place you at Landing Site. Also clears traps.";
 tip[3] = get_text("PauseMenu", "Options_Tip");
 tip[4] = get_text("PauseMenu", "Quit_Tip");
 global.tiptext = tip[global.curropt];

@@ -92,6 +92,7 @@ else
     {
         global.save_room = 0;
         global.warptoship = 0;
+        oMWConnector.alarm[0] = 90;
     }
 
     set_start_location();
