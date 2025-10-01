@@ -3520,10 +3520,10 @@ else
 if (plantdrain > 0)
 {
     plantdrain -= 1;
-    global.lastDamageIndex = oPlantSpikes;
 
     if ((instance_exists(oMeboid) || instance_exists(oMeboid2)) && state != 60)
     {
+        global.lastDamageIndex = oMeboid;
         switch (global.currentsuit)
         {
             case 0:
@@ -3547,6 +3547,7 @@ if (plantdrain > 0)
     }
     else if (state != 60)
     {
+        global.lastDamageIndex = oPlantSpikes;
         if (global.currentsuit == 0)
             global.playerhealth -= (global.mod_plaintdrainPS * oControl.mod_diffmult);
         
