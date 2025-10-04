@@ -36,21 +36,21 @@ if (string_count("rm_a", room_get_name(room)) && global.lastroom != rm_subscreen
         }
         x = target.x + (8 * (target.direction == 90 || target.direction == 270));
         y = target.y;
-        if (oCharacter.state == 60)
+        if (state == 60)
         {
-            with(oCharacter)
-            {
-                state = 23;
-                statetime = 0;
-                morphing = 0;
-                turning = 0;
-                canbehit = 1;
-            }
+            state = 23;
+            statetime = 0;
+            morphing = 0;
+            turning = 0;
+            canbehit = 1;
         }
         global.darkness = 0;
 
         if (isCollisionUnmorph() != 1)
         {
+            if (state = KNOCKBACK1)
+                canbehit = 1;
+
             state = BALL;
             morphing = 1;
             image_index = 0;

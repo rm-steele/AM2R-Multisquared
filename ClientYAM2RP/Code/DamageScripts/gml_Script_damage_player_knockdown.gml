@@ -23,7 +23,7 @@ if (global.godmode)
 if (global.playerhealth > 0)
 {
     global.lastDamageIndex = object_index;
-    with (other.id)
+    with (oCharacter)
     {
         if (state != 39 && walljumping == 0)
         {
