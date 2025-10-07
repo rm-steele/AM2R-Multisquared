@@ -373,9 +373,7 @@ switch (type_event)
             
             case 106:
                 load_character_vars();
-                
-                if (!global.sax)
-                    reset_dmap();
+                reset_dmap();
                 
                 global.itemPrev = array_clone(global.item);
                 global.metdeadPrev = array_clone(global.metdead);
