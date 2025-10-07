@@ -1443,7 +1443,7 @@ switch (type_event)
                             {
                                 pbomb = instance_create(pbombX, pbombY, oPBombMulti);
                                 
-                                if ((global.sax && !sax) || (sax && !global.sax))
+                                if (global.sax != sax)
                                     pbomb.enemy = 1;
                                 
                                 pbomb.sax = sax;
@@ -1511,7 +1511,7 @@ switch (type_event)
                 var playerY = buffer_read(_buffer, buffer_s16);
                 var sax = buffer_read(_buffer, buffer_s8);
                 
-                if (room == sentRoom && !sax)
+                if (room == sentRoom)
                 {
                     seq = instance_create(playerX, playerY, oDeathSequenceMulti);
                     seq.facing = mirror;
