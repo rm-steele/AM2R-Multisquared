@@ -651,6 +651,20 @@
       "pre_create_code": null,
       "image_speed": 0,
       "image_index": 0
+    },
+    {
+      "x": 1248,
+      "y": 400,
+      "object_definition": "oClientTeams",
+      "instance_id": 0,
+      "creation_code": null,
+      "scale_x": 1,
+      "scale_y": 1,
+      "color": 4294967295,
+      "rotation": 0,
+      "pre_create_code": null,
+      "image_speed": 0,
+      "image_index": 0
     }
   ],
   "tiles": []

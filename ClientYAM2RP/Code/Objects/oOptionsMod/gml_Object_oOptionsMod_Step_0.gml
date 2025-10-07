@@ -113,6 +113,22 @@ if (active)
         if (global.curropt == num_selfpalette)
             oControl.useselfpalette = !oControl.useselfpalette;
 
+        if (global.curropt == num_team && canedit[num_team])
+        {
+            if (instance_exists(oClient))
+            {
+                with (oClient)
+                {
+                    buffer_delete(buffer);
+                    buffer = buffer_create(1024, 1, 1);
+                    buffer_seek(buffer, buffer_seek_start, 0);
+                    buffer_write(buffer, buffer_s32, 1);
+                    buffer_write(buffer, buffer_u8, 37);
+                    buffer_poke(buffer, 0, buffer_s32, buffer_tell(buffer) - 4);
+                    network_send_packet(socket, buffer, buffer_tell(buffer));
+                }
+            }
+        }
         sfx_play(189);
         event_user(2);
     }
@@ -218,6 +234,7 @@ if (active)
             instance_create(50, 92, oOptionsMain);
             instance_destroy();
             sfx_play(188);
+            exit;
         }
     }
     
@@ -253,15 +270,25 @@ timer -= 1;
 if (timer < 0)
     timer = 8;
 
-if (instance_exists(oClient) && instance_exists(id) && instance_exists(connID))
+if (instance_exists(oClient))
 {
-    connectiontxt = "Disconnect";
-    op[num_connection].label = connectiontxt;
+    if (instance_exists(connID))
+    {
+        connectiontxt = "Disconnect";
+        op[num_connection].label = connectiontxt;
+    }
+    canedit[num_team] = 1;
+    op[num_team].enabled = 1;
 }
-else if (!instance_exists(oClient) && instance_exists(id) && instance_exists(connID))
+else
 {
-    connectiontxt = "Connect";
-    op[num_connection].label = connectiontxt;
+    if (instance_exists(connID))
+    {
+        connectiontxt = "Connect";
+        op[num_connection].label = connectiontxt;
+    }
+    canedit[num_team] = 0;
+    op[num_team].enabled = 0;
 }
 
 if (!done)
@@ -276,5 +303,15 @@ if (!done)
     {
         if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V")))
             keyboard_string = clipboard_get_text();
+    }
+
+    switch (global.sax)
+    {
+        case 0:
+            op[num_team].optext = "Good";
+            break;
+        case 1:
+            op[num_team].optext = "Diabolical";
+            break;
     }
 }

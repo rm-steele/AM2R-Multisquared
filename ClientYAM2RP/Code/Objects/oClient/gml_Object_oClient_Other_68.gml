@@ -1521,6 +1521,10 @@ switch (type_event)
                 
                 break;
             
+            case 37:
+                popup_text("Server does not allow team changing");
+                break;
+
             case 50:
                 var resend = 0;
                 

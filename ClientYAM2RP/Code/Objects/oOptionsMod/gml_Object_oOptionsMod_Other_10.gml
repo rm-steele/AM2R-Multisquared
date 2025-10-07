@@ -47,6 +47,9 @@ if (!global.shaders_compiled)
 op[num_showname] = instance_create(x, y + (sep * tempcount++), oOptionLR);
 op[num_showname].label = "Show names";
 op[num_showname].optionid = num_showname;
+op[num_team] = instance_create(x, y + (sep * tempcount++), oOptionLR);
+op[num_team].label = "Team";
+op[num_team].optionid = num_team;
 op[num_connection] = instance_create(x, y + (sep * tempcount++), oPauseOption);
 op[num_connection].optionid = num_connection;
 op[num_connection].label = connectiontxt;

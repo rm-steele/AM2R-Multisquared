@@ -2841,7 +2841,51 @@ switch (type_event)
                 }
                 
                 break;
-            
+
+            case 37:
+                if (global.allowclientteamchanges)
+                {
+                    var findIDSamus = ds_list_find_index(samusList, client_id);
+                    
+                    if (findIDSamus >= 0)
+                        team = 1;
+                    
+                    var findIDSAX = ds_list_find_index(saxList, client_id);
+                    
+                    if (findIDSAX >= 0)
+                        team = 2;
+
+                    if (team == 1)
+                    {
+                        team = 2; // it may seem pointless to update team now but i do it in case team needs to get referenced after the switch case (even though it shouldn't)
+                        ds_list_delete(samusList, findIDSamus);
+                        ds_list_add(saxList, client_id);
+                        global.newTeam = 2;
+                        global.newTeamSocket = socket;
+                        event_user(3);
+                    }
+                    else if (team == 2)
+                    {
+                        team = 1;
+                        ds_list_delete(saxList, findIDSAX);
+                        ds_list_add(samusList, client_id);
+                        global.newTeam = 1;
+                        global.newTeamSocket = socket;
+                        event_user(3);
+                    }
+                }
+                else
+                {
+                    buffer_delete(buffer);
+                    buffer = buffer_create(1024, 1, 1);
+                    buffer_seek(buffer, buffer_seek_start, 0);
+                    buffer_write(buffer, buffer_s32, 1);
+                    buffer_write(buffer, buffer_u8, 37);
+                    buffer_poke(buffer, 0, buffer_s32, buffer_tell(buffer) - 4);
+                    network_send_packet(socket, buffer, buffer_tell(buffer));
+                }
+                break;
+
             case 50:
                 if (bufferSize < 350)
                     exit;

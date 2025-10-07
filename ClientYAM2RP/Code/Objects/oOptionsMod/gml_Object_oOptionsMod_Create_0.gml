@@ -10,6 +10,7 @@ num_color = tempnumcounter++;
 num_palette = tempnumcounter++;
 num_selfpalette = tempnumcounter++;
 num_showname = tempnumcounter++;
+num_team = tempnumcounter++;
 num_connection = tempnumcounter++;
 lastitem = tempnumcounter;
 ip = oControl.ipaddress;
@@ -65,6 +66,8 @@ repeat (lastitem + 1)
     i += 1;
 }
 
+canedit[num_team] = instance_exists(oClient);
+
 targety = y;
 view_object[0] = id;
 timer = 0;
@@ -84,6 +87,7 @@ tip[num_color] = "Pick your preferred player color";
 tip[num_palette] = "Choose palette setting";
 tip[num_selfpalette] = "Toggle use of the palette on yourself";
 tip[num_showname] = "Enable/disable showing player names";
+tip[num_team] = "Ask the server to set your team";
 tip[num_connection] = "Connect/disconnect to the server";
 tip[lastitem] = get_text("GlobalOptions", "ExitMain_Tip");
 global.tiptext = tip[global.curropt];
