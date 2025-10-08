@@ -576,3 +576,4 @@ global.deathlinkState = 0; // 0 = nothing; 1 = receiving a deathlink (don't send
 global.warptoship = 0;
 global.lastDamageIndex = 0;
 global.opmwcasesensitive = 0;
+global.freeForAll = 0;

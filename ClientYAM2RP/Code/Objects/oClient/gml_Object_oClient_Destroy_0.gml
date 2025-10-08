@@ -88,3 +88,4 @@ global.spectatorIndex = -1;
 global.saxmode = 0;
 global.sax = 0;
 global.moderator = 0;
+global.freeForAll = 0;

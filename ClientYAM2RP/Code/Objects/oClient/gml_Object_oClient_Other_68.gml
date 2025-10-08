@@ -563,13 +563,11 @@ switch (type_event)
             
             case 111:
                 var newTeam = buffer_read(_buffer, buffer_u8);
-                
-                if (newTeam == 1)
-                    global.sax = 0;
-                
-                if (newTeam == 2)
-                    global.sax = 1;
-                
+
+                global.oldTeam = newTeam - 1;
+                if (!global.freeForAll)
+                    global.sax = newTeam - 1;
+
                 break;
             
             case 112:
@@ -577,12 +575,10 @@ switch (type_event)
                 var newTeam = buffer_read(_buffer, buffer_u8);
                 global.saxmode = saxmode;
                 
-                if (newTeam == 1)
-                    global.sax = 0;
-                
-                if (newTeam == 2)
-                    global.sax = 1;
-                
+                global.oldTeam = newTeam - 1;
+                if (!global.freeForAll)
+                    global.sax = newTeam - 1;
+
                 break;
             
             case 113:
@@ -595,6 +591,7 @@ switch (type_event)
                 var shortcuts = buffer_read(_buffer, buffer_u8);
                 global.juggActive = buffer_read(_buffer, buffer_u8);
                 global.MetCount = buffer_read(_buffer, buffer_u8);
+                global.freeForAll = buffer_read(_buffer, buffer_u8);
                 global.damageMult = damageMult;
                 global.saxmode = saxmode;
                 global.shortcuts = shortcuts;

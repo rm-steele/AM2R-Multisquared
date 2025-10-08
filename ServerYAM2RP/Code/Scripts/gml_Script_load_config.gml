@@ -11,4 +11,5 @@ global.shortcuts = ini_read_real("Settings", "SAXModeShortcuts", 0);
 oServer.syncedDifficulty = ini_read_real("Settings", "Difficulty", 1);
 oServer.syncedELM = ini_read_real("Settings", "ExtremeLabMetroids", 0);
 global.allowclientteamchanges = ini_read_real("Settings", "AllowClientTeamChanges", 1);
+global.freeForAll = ini_read_real("Settings", "FreeForAll", 0);
 ini_close();

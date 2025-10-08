@@ -4166,3 +4166,14 @@ if (!inwater || global.currentsuit == 2)
     global.canScrewMulti = 1;
 else
     global.canScrewMulti = 0;
+
+if (global.freeForAll)
+{
+    if (global.sax != global.clientID)
+    {
+        global.oldTeam = global.sax;
+        global.sax = global.clientID;
+    }
+}
+else if (global.sax == global.clientID)
+    global.sax = global.oldTeam;

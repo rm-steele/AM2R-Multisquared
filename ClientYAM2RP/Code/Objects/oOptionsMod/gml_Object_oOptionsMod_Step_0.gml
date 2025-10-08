@@ -277,8 +277,16 @@ if (instance_exists(oClient))
         connectiontxt = "Disconnect";
         op[num_connection].label = connectiontxt;
     }
-    canedit[num_team] = 1;
-    op[num_team].enabled = 1;
+    if (global.freeForAll)
+    {
+        canedit[num_team] = 0;
+        op[num_team].enabled = 0;
+    }
+    else
+    {
+        canedit[num_team] = 1;
+        op[num_team].enabled = 1;
+    }
 }
 else
 {
@@ -305,13 +313,18 @@ if (!done)
             keyboard_string = clipboard_get_text();
     }
 
-    switch (global.sax)
+    if (global.freeForAll)
+        op[num_team].optext = "FFA";
+    else
     {
-        case 0:
-            op[num_team].optext = "Good";
-            break;
-        case 1:
-            op[num_team].optext = "Diabolical";
-            break;
+        switch (global.sax)
+        {
+            case 0:
+                op[num_team].optext = "Good";
+                break;
+            case 1:
+                op[num_team].optext = "Diabolical";
+                break;
+        }
     }
 }

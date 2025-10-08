@@ -430,7 +430,7 @@
     },
     {
       "x": 1124,
-      "y": 464,
+      "y": 496,
       "object_definition": "oResetToggles",
       "instance_id": 0,
       "creation_code": null,
@@ -444,7 +444,7 @@
     },
     {
       "x": 1296,
-      "y": 464,
+      "y": 496,
       "object_definition": "oResetToggles",
       "instance_id": 0,
       "creation_code": null,
@@ -598,7 +598,7 @@
     },
     {
       "x": 1248,
-      "y": 432,
+      "y": 464,
       "object_definition": "oExperimentalPage",
       "instance_id": 0,
       "creation_code": "gml_RoomCC_room0_EXPPage_Left",
@@ -612,7 +612,7 @@
     },
     {
       "x": 1296,
-      "y": 432,
+      "y": 464,
       "object_definition": "oExperimentalPage",
       "instance_id": 0,
       "creation_code": "gml_RoomCC_room0_EXPPage_Right",
@@ -656,6 +656,20 @@
       "x": 1248,
       "y": 400,
       "object_definition": "oClientTeams",
+      "instance_id": 0,
+      "creation_code": null,
+      "scale_x": 1,
+      "scale_y": 1,
+      "color": 4294967295,
+      "rotation": 0,
+      "pre_create_code": null,
+      "image_speed": 0,
+      "image_index": 0
+    },
+    {
+      "x": 1248,
+      "y": 432,
+      "object_definition": "oFreeForAll",
       "instance_id": 0,
       "creation_code": null,
       "scale_x": 1,
