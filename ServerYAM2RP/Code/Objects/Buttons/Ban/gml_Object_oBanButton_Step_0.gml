@@ -32,7 +32,7 @@ if (instance_exists(oServer))
             var arrID = arr[0, 0];
             
             if (arrID == ID)
-                y = 87 + ((i + 1) * 30);
+                y = global.basePlayerNameHeight + ((i + 1) * 30);
         }
     }
 }

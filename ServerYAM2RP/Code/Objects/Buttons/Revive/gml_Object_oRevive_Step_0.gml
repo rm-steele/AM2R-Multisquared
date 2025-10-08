@@ -17,7 +17,7 @@ if (instance_exists(oServer))
                     show_debug_message(string(arr[0, 0]));
                     var arrID = arr[0, 0];
                     var arrSocket = arr[0, 1];
-                    button = instance_create(290, 87 + ((i + 1) * 30), oReviveButton);
+                    button = instance_create(290, global.basePlayerNameHeight + ((i + 1) * 30), oReviveButton);
                     button.ID = arrID;
                     button.socket = arrSocket;
                 }
@@ -42,7 +42,7 @@ if (instance_exists(oServer))
                     
                     if (!found)
                     {
-                        button = instance_create(290, 87 + ((i + 1) * 30), oReviveButton);
+                        button = instance_create(290, global.basePlayerNameHeight + ((i + 1) * 30), oReviveButton);
                         button.ID = arrID;
                         button.socket = arrSocket;
                     }

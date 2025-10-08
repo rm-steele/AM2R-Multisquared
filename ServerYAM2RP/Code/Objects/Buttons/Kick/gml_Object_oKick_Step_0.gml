@@ -17,7 +17,7 @@ if (instance_exists(oServer))
                     show_debug_message(string(arr[0, 0]));
                     var arrID = arr[0, 0];
                     var arrIP = arr[0, 3];
-                    button = instance_create(220, 87 + ((i + 1) * 30), oKickButton);
+                    button = instance_create(220, global.basePlayerNameHeight + ((i + 1) * 30), oKickButton);
                     button.ID = arrID;
                     button.IP = arrIP;
                 }
@@ -42,7 +42,7 @@ if (instance_exists(oServer))
                     
                     if (!found)
                     {
-                        button = instance_create(220, 87 + ((i + 1) * 30), oKickButton);
+                        button = instance_create(220, global.basePlayerNameHeight + ((i + 1) * 30), oKickButton);
                         button.ID = arrID;
                         button.IP = arrIP;
                     }

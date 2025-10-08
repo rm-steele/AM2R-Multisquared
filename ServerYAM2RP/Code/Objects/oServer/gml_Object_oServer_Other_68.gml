@@ -400,6 +400,7 @@ switch (type_event)
                     if (findID >= 0)
                         ds_list_delete(saxList, findID);
                     
+                    clientItemCounts[arrList[0, 0]] = -1;
                     ds_list_delete(idList, i);
                 }
             }
@@ -1908,7 +1909,9 @@ switch (type_event)
                 
                 if (global.bufferOverflow)
                     exit;
-                
+
+                clientItemCounts[clientID] = itemstaken;
+
                 var sockets = ds_list_size(playerList);
                 buffer_delete(buffer);
                 var size = 1024;

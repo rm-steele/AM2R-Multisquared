@@ -1,10 +1,6 @@
 if (global.spectator)
     exit;
 
-var serverdamageMult = global.damageMult;
-
-global.damageMult = 3 * (itemstaken / 88) // TODO: replace this number with a number determined by the server, this is just for testing!
-
 var damage_taken = 0;
 
 if (global.currentsuit == 0 || argument3 == 1)
@@ -189,7 +185,6 @@ with (oCharacter)
 global.multiDamageCollision = 0;
 global.ignoreKnockback = 0;
 global.hitBySuper = 0;
-global.damageMult = serverdamageMult;
 
 if (instance_exists(oA2WaterJetMachine))
 {

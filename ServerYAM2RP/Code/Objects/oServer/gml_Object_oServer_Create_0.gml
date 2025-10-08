@@ -138,6 +138,11 @@ else
 
 global.kickReason = 255;
 
+clientItemCounts[0] = -1;
+for(var i = 0; i < 256; i++)
+    clientItemCounts[i] = -1;
+
+global.basePlayerNameHeight = 115;
 // mw forced overrides
 global.lobbyLocked = 0;
 global.saxmode = 0;
