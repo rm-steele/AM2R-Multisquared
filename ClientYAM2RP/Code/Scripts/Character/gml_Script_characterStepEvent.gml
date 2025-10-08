@@ -4167,13 +4167,16 @@ if (!inwater || global.currentsuit == 2)
 else
     global.canScrewMulti = 0;
 
-if (global.freeForAll)
+if (instance_exists(oClient))
 {
-    if (global.sax != global.clientID)
+    if (global.freeForAll)
     {
-        global.oldTeam = global.sax;
-        global.sax = global.clientID;
+        if (global.sax != global.clientID)
+        {
+            global.oldTeam = global.sax;
+            global.sax = global.clientID;
+        }
     }
+    else if (global.sax == global.clientID)
+        global.sax = global.oldTeam;
 }
-else if (global.sax == global.clientID)
-    global.sax = global.oldTeam;

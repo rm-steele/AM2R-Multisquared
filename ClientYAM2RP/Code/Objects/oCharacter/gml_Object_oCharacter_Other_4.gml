@@ -26,14 +26,15 @@ if (string_count("rm_a", room_get_name(room)) && global.lastroom != rm_subscreen
     else if (global.dowarp = 1)
     {
         global.dowarp = 0;
-        var target = instance_find(oGotoRoom, irandom(instance_number(oGotoRoom) - 1));
-        while (1)
+        var target = noone;
+
+        for (var i = 0; i < instance_number(oGotoRoom); i++)
         {
+            target = instance_find(oGotoRoom, i);
             if (target.shortcut = 0)
                 break;
-            else
-                target = instance_find(oGotoRoom, irandom(instance_number(oGotoRoom) - 1));
         }
+
         x = target.x + (8 * (target.direction == 90 || target.direction == 270));
         y = target.y;
         if (state == 60)
@@ -45,6 +46,8 @@ if (string_count("rm_a", room_get_name(room)) && global.lastroom != rm_subscreen
             canbehit = 1;
         }
         global.darkness = 0;
+        global.waterlevel = 0;
+        global.watertype = 0;
 
         if (isCollisionUnmorph() != 1)
         {
@@ -65,8 +68,9 @@ if (string_count("rm_a", room_get_name(room)) && global.lastroom != rm_subscreen
     else if (global.warpsleft > 0/* && irandom(2) == 2*/) // whether i make it random is still pending
     {
         global.warpsleft--;
+        var rm_steele = random_room();
         with (oGotoRoom)
-            targetroom = random_room();
+            targetroom = rm_steele;
         global.dowarp = 1;
     }
 }

@@ -23,6 +23,8 @@ ds_list_add(list, global.emptraps);
 ds_list_add(list, global.touhoutraps);
 ds_list_add(list, global.ohkotraps);
 ds_list_add(list, global.wrongwarptraps);
+ds_list_add(list, global.wrongWarpListPos);
+ds_list_add(list, global.warpsleft);
 i = 0;
 
 repeat (36)

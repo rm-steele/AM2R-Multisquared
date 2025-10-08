@@ -47,6 +47,7 @@ global.emptraptimer = 0;
 global.touhoutraptimer = 0;
 global.warpsleft = 0;
 global.dowarp = 0;
+global.wrongWarpListPos = 0;
 global.seedreceived = 0;
 global.mwcompleted = 0;
 global.lavastate = 0;

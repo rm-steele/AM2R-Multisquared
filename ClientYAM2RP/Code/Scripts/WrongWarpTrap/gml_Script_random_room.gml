@@ -2,8 +2,18 @@
  * Part of this code is modified from AM2R Chaos Edition's script of the same name
  * Thanks to M8-TEN and Bastion B-56 for their code and explanations of how it worked there
  */
+var result = 21;
 
-var result = irandom_range(21, 393);
+if (!ds_exists(global.wrongWarpList, ds_type_list))
+{
+    result = irandom_range(21, 393);
+}
+else
+{
+    result = real(ds_list_find_value(global.wrongWarpList, global.wrongWarpListPos++));
+    if (global.wrongWarpListPos >= ds_list_size(global.wrongWarpList))
+        global.wrongWarpListPos = 0;
+}
 
 if (global.event[55] < 1 && (result == 55 || result == 63 || result == 64)) // don't get put above guardian if it isn't defeated
     return random_room();
