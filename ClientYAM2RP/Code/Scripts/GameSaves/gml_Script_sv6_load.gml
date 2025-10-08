@@ -2,26 +2,11 @@ scr_default_global_items();
 show_debug_message(room_get_name(global.lastroom));
 show_debug_message(room_get_name(room));
 
+load_character_vars();
+reset_map();
+init_map();
+
 if (!instance_exists(oClient))
-{
-    load_character_vars();
-    reset_map();
-    init_map();
-}
-else if (instance_exists(oClient) && global.lastroom == 2)
-{
-    oClient.phase = 0;
-    oClient.queenHealth = global.mod_queenHstart + (global.mtanks * 10);
-}
-else if (instance_exists(oClient) && global.lastroom != 2 && string_count("rm_a", room_get_name(global.lastroom)) == 0)
-{
-    load_character_vars();
-    reset_map();
-    init_map();
-    oClient.phase = 0;
-    oClient.queenHealth = global.mod_queenHstart + (global.mtanks * 10);
-}
-else if (instance_exists(oClient) && global.lastroom != 2 && string_count("rm_a", room_get_name(global.lastroom)) > 0)
 {
     oClient.phase = 0;
     oClient.queenHealth = global.mod_queenHstart + (global.mtanks * 10);

@@ -65,7 +65,7 @@ if (string_count("rm_a", room_get_name(room)) && global.lastroom != rm_subscreen
             sfx_play(15);
         }
     }
-    else if (global.warpsleft > 0/* && irandom(2) == 2*/) // whether i make it random is still pending
+    else if (global.warpsleft > 0 && instance_exists(oMWConnector) && oMWConnector.alarm[0] < 1) // whether i make it random is still pending
     {
         global.warpsleft--;
         var rm_steele = random_room();

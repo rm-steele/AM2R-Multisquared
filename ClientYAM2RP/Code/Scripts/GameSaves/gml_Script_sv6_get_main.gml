@@ -25,6 +25,8 @@ global.emptraps = readline();
 global.touhoutraps = readline();
 global.ohkotraps = readline();
 global.wrongwarptraps = readline();
+global.wrongWarpList = ds_list_create();
+ds_list_read(global.wrongWarpList, readline());
 global.wrongWarpListPos = readline();
 global.warpsleft = readline();
 ds_list_clear(list);
