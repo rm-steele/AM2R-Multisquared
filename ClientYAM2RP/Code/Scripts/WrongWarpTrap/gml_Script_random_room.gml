@@ -10,7 +10,7 @@ if (!ds_exists(global.wrongWarpList, ds_type_list))
 }
 else
 {
-    result = real(ds_list_find_value(global.wrongWarpList, global.wrongWarpListPos++));
+    result = real(ds_list_find_value(global.wrongWarpList, global.wrongWarpListPos++)); // the rooms have to be sent as strings because python hates and so does GMS
     if (global.wrongWarpListPos >= ds_list_size(global.wrongWarpList))
         global.wrongWarpListPos = 0;
 }

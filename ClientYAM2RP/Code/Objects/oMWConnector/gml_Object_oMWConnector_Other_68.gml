@@ -288,16 +288,19 @@ switch (type_event)
         var returnMap = ds_map_create();
         var checkList = ds_list_create();
 
-        for (var i = 0; i < 350; i++)
+        if (!is_on_menu())
         {
-            if (global.item[i] == 1)
-                ds_list_add(checkList, i);
-        }
+            for (var i = 0; i < 350; i++)
+            {
+                if (global.item[i] == 1)
+                    ds_list_add(checkList, i);
+            }
 
-        for (var i = 0; i < 46; i++)
-        {
-            if (global.metdead[i] == 1)
-                ds_list_add(checkList, i + 310);
+            for (var i = 0; i < 46; i++)
+            {
+                if (global.metdead[i] == 1)
+                    ds_list_add(checkList, i + 310);
+            }
         }
 
         ds_map_add_list(returnMap, "Items", checkList);
