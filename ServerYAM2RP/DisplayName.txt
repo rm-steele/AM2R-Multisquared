@@ -1,1 +1,1 @@
-AM2R Multiworld Server 1.3.0-dev
+AM2R Multiworld Server 1.3.0

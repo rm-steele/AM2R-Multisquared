@@ -1,1 +1,1 @@
-AM2R Multiworld 1.3.0-dev
+AM2R Multiworld 1.3.0
