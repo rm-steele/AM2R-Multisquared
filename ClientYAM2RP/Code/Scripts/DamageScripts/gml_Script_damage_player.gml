@@ -55,6 +55,7 @@ if (argument3 == 0)
 
 if (global.playerhealth > 0)
 {
+    global.lastDamageIndex = object_index;
     with (oCharacter)
     {
         var currState = state;
