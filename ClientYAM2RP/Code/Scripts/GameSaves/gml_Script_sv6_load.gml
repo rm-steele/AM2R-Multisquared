@@ -6,7 +6,7 @@ load_character_vars();
 reset_map();
 init_map();
 
-if (!instance_exists(oClient))
+if (instance_exists(oClient))
 {
     oClient.phase = 0;
     oClient.queenHealth = global.mod_queenHstart + (global.mtanks * 10);
@@ -19,17 +19,30 @@ fid = file_text_open_read(filename + "d");
 var header = rc4(file_text_read_string(fid), "HEADER_KEY");
 file_text_readln(fid);
 
-if (header != "[AM2R SaveData V7.0]")
+var oldSave = 0;
+if (header != "[AM2R SaveData V8.0]")
 {
-    file_text_close(fid);
-    show_message_async("Save Data Corrupted");
-    file_delete(filename + "d");
-    file_delete(filename);
-    room_goto(titleroom);
+    if (header == "[AM2R SaveData V7.0]")
+    {
+        oldSave = 1;
+    }
+    else
+    {
+        file_text_close(fid);
+        show_message_async("Save Data Corrupted");
+        file_delete(filename + "d");
+        file_delete(filename);
+        room_goto(titleroom);
+        exit;
+    }
 }
-else
+
 {
-    sv6_get_main(fid);
+    if (oldSave)
+        sv6_get_main_old(fid);
+    else
+        sv6_get_main(fid);
+
     file_text_readln(fid);
     sv6_get_items(fid);
     file_text_readln(fid);
