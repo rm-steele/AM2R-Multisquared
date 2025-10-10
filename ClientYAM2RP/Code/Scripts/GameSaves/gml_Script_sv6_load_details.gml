@@ -22,7 +22,11 @@ if (header != "[AM2R SaveData V8.0]")
     }
 }
 {
-    sv6_get_main(fid);
+    if (oldSave)
+        sv6_get_main_old(fid);
+    else
+        sv6_get_main(fid);
+
     file_text_readln(fid);
     file_text_readln(fid);
     file_text_readln(fid);
