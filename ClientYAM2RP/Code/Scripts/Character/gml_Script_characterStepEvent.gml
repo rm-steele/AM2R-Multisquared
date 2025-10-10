@@ -3647,6 +3647,41 @@ else
     queen_drainfx = 0;
 }
 
+if (pbomb_drain > 0)
+{
+    pbomb_drain -= 1;
+    
+    if (global.currentsuit == 0)
+        global.playerhealth -= (0.66 * oControl.mod_diffmult);
+    
+    if (global.currentsuit == 1)
+        global.playerhealth -= (0.5 * oControl.mod_diffmult);
+    
+    if (global.currentsuit == 2)
+    {
+        if (global.inventory[5] == 0)
+            global.playerhealth -= (0.5 * oControl.mod_diffmult);
+        else
+            global.playerhealth -= (0.35 * oControl.mod_diffmult);
+    }
+    
+    if (global.playerhealth <= 0)
+    {
+        with (oControl)
+            event_user(1);
+    }
+    
+    if (pbomb_drainfx == 0)
+    {
+        sfx_loop(28);
+        pbomb_drainfx = 1;
+    }
+}
+else
+{
+    pbomb_drainfx = 0;
+}
+
 if (state != BALL && state != AIRBALL && state != SPIDERBALL && state != SUPERJUMP)
     setCollisionBounds(-6, -27, 6, 0);
 
