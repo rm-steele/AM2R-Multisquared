@@ -494,7 +494,7 @@ switch (type_event)
                             
                             if (checkFreeze && global.playerFreeze == 0 && !global.frozenNormally)
                             {
-                                if (checkBeam && !global.freezeDisabled && global.playerFreeze == 0 && invincible == 0 && canbehit && state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIPFX && state != SAVINGSHIP && state != ELEVATOR && state != GFELEVATOR)
+                                if (checkBeam && !global.inventory[5] && global.playerFreeze == 0 && invincible == 0 && canbehit && state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIPFX && state != SAVINGSHIP && state != ELEVATOR && state != GFELEVATOR)
                                 {
                                     global.playerFreeze = 120;
                                     damageDir = 0;
@@ -517,7 +517,7 @@ switch (type_event)
                                     }
                                 }
                                 
-                                if (checkMissile && (checkDamage == 10 || checkDamage == 20) && !global.freezeDisabled && global.playerFreeze == 0 && invincible == 0 && canbehit && state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIPFX && state != SAVINGSHIP && state != ELEVATOR && state != GFELEVATOR)
+                                if (checkMissile && (checkDamage == 10 || checkDamage == 20) && !global.inventory[5] && global.playerFreeze == 0 && invincible == 0 && canbehit && state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIPFX && state != SAVINGSHIP && state != ELEVATOR && state != GFELEVATOR)
                                 {
                                     global.playerFreeze = 120;
                                     damageDir = 0;
