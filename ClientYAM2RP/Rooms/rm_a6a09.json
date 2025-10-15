@@ -934,10 +934,10 @@
     },
     {
       "x": 768,
-      "y": 224,
+      "y": 368,
       "object_definition": "oSolid1",
       "instance_id": 0,
-      "creation_code": "gml_RoomCC_rm_a6a09_9105_Create",
+      "creation_code": null,
       "scale_x": 4,
       "scale_y": 4,
       "color": 4294967295,
@@ -979,7 +979,7 @@
     {
       "sprite_mode": false,
       "x": 752,
-      "y": 208,
+      "y": 352,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 64,
@@ -995,7 +995,7 @@
     {
       "sprite_mode": false,
       "x": 816,
-      "y": 208,
+      "y": 352,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 96,
@@ -1011,7 +1011,7 @@
     {
       "sprite_mode": false,
       "x": 768,
-      "y": 272,
+      "y": 416,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 0,
@@ -1027,7 +1027,7 @@
     {
       "sprite_mode": false,
       "x": 816,
-      "y": 272,
+      "y": 416,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 96,
@@ -1043,7 +1043,7 @@
     {
       "sprite_mode": false,
       "x": 784,
-      "y": 272,
+      "y": 416,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 64,
@@ -1059,7 +1059,7 @@
     {
       "sprite_mode": false,
       "x": 784,
-      "y": 208,
+      "y": 352,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 96,
@@ -1075,7 +1075,7 @@
     {
       "sprite_mode": false,
       "x": 816,
-      "y": 240,
+      "y": 384,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 32,
@@ -1091,7 +1091,7 @@
     {
       "sprite_mode": false,
       "x": 752,
-      "y": 256,
+      "y": 400,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 0,
@@ -1107,7 +1107,7 @@
     {
       "sprite_mode": false,
       "x": 768,
-      "y": 240,
+      "y": 384,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 64,
@@ -1123,7 +1123,7 @@
     {
       "sprite_mode": false,
       "x": 784,
-      "y": 240,
+      "y": 384,
       "background_definition": "tlRock6A",
       "sprite_definition": null,
       "source_x": 0,
