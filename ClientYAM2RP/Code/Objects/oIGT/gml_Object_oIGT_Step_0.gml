@@ -29,12 +29,12 @@ if (surface_exists(igt_surface))
     if (instance_exists(oClient))
     {
         var yoff = 27;
-        
+
+        if (global.saveStationCooldown > 0)
+            draw_cool_text(4, yoff, "Save Cooldown: " + string(global.saveStationCooldown / 60), 0, 16777215, 8421504, 1);
+
         if (global.saxmode)
         {
-            if (global.saveStationCooldown > 0)
-                draw_cool_text(4, yoff, "Save Cooldown: " + string(global.saveStationCooldown / 60), 0, 16777215, 8421504, 1);
-            
             percentOffset = 44;
             var metcount = 0;
             
