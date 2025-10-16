@@ -21,7 +21,20 @@ if (active)
         sfx_play(189);
         global.tiptext = tip[global.curropt];
     }
-    
+
+    if ((oControl.kLeft > 0 && oControl.kLeftPushedSteps == 0) || (oControl.kRight > 0 && oControl.kRightPushedSteps == 0 && global.curropt < lastitem && oControl.kDown == 0 && oControl.kUp == 0))
+    {
+        if (global.curropt == 2)
+        {
+            global.opmwcasesensitive = !global.opmwcasesensitive;
+            if (global.opmwcasesensitive)
+                op[3].optext = "Yes";
+            else
+                op[3].optext = "No";
+            sfx_play(188);
+        }
+    }
+
     if (((oControl.kMenu1 && oControl.kMenu1PushedSteps == 0) || keyboard_check_pressed(vk_return)) && !editing)
     {
         keyboard_clear(vk_return);
