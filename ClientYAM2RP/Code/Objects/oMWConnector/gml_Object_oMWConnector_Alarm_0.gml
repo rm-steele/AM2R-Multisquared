@@ -1,3 +1,4 @@
+global.wrongWarpListPos += global.warpsleft;
 global.floodtraptimer = 0;
 global.tosstraptimer = 0;
 global.shorttraptimer = 0;
