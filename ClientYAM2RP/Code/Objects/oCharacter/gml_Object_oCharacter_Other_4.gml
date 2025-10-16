@@ -37,7 +37,7 @@ if (string_count("rm_a", room_get_name(room)) && global.lastroom != rm_subscreen
 
         x = target.x + (8 * (target.direction == 90 || target.direction == 270));
         y = target.y;
-        if (state == 60)
+        if (state == LOCKEDBALL || state == WATERJET)
         {
             state = 23;
             statetime = 0;
