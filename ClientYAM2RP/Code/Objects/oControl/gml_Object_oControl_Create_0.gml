@@ -577,3 +577,4 @@ global.warptoship = 0;
 global.lastDamageIndex = 0;
 global.opmwcasesensitive = 0;
 global.freeForAll = 0;
+global.clearWrongWarps = 0;

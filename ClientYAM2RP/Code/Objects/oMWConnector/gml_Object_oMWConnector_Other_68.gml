@@ -218,12 +218,14 @@ switch (type_event)
                 global.floodtraptimer += (1800 * (floodtrapcount - global.floodtraps));
                 screen_shake(30, 6);
                 sfx_play(80);
-                popup_text("Pipe Burst Detected");
+                if (alarm[0] <= 0)
+                    popup_text("Pipe Burst Detected");
             }
 
             if ((tosstrapcount - global.tosstraps) > 0)
             {
-                popup_text("TOSS Inbound");
+                if (alarm[0] <= 0)
+                    popup_text("TOSS Inbound");
                 receivedanything = 1;
                 global.tossforce += ((tosstrapcount - global.tosstraps) * 30);
 
@@ -235,35 +237,48 @@ switch (type_event)
             {
                 receivedanything = 1;
                 global.shorttraptimer += (1800 * (shorttrapcount - global.shorttraps));
-                popup_text("Beam Energy Low");
+                if (alarm[0] <= 0)
+                    popup_text("Beam Energy Low");
             }
 
             if ((emptrapcount - global.emptraps) > 0)
             {
                 receivedanything = 1;
                 global.emptraptimer += (1800 * (emptrapcount - global.emptraps));
-                popup_text("Weapon Systems Disabled");
+                if (alarm[0] <= 0)
+                    popup_text("Weapon Systems Disabled");
             }
 
             if ((ohkotrapcount - global.ohkotraps) > 0)
             {
                 receivedanything = 1;
                 global.ohkotraptimer += (1800 * (ohkotrapcount - global.ohkotraps));
-                popup_text("Energy Shield Update Installing");
+                if (alarm[0] <= 0)
+                    popup_text("Energy Shield Update Installing");
             }
 
             if ((touhoutrapcount - global.touhoutraps) > 0)
             {
                 receivedanything = 1;
                 global.touhoutraptimer += (900 * (touhoutrapcount - global.touhoutraps));
-                popup_text("Bullet Hell Begin");
+                if (alarm[0] <= 0)
+                    popup_text("Bullet Hell Begin");
             }
 
             if((wrongwarptrapcount - global.wrongwarptraps) > 0)
             {
-                receivedanything = 1;
-                global.warpsleft += (wrongwarptrapcount - global.wrongwarptraps)
-                popup_text("Curse of the Maze")
+                if (!global.clearWrongWarps) // ignore receiving the first set of wrong warps coming from a "restart from last save"
+                {
+                    receivedanything = 1;
+                    global.warpsleft += (wrongwarptrapcount - global.wrongwarptraps);
+                    if (alarm[0] <= 0)
+                        popup_text("Curse of the Maze");
+                }
+                else
+                {
+                    global.wrongWarpListPos = (global.wrongWarpListPos + (wrongwarptrapcount - global.wrongwarptraps)) % ds_list_size(global.wrongWarpList);
+                    global.clearWrongWarps = 0;
+                }
             }
 
             global.touhoutraps = touhoutrapcount;

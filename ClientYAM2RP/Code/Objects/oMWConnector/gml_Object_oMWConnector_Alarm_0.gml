@@ -1,4 +1,4 @@
-global.wrongWarpListPos += global.warpsleft;
+global.wrongWarpListPos = (global.wrongWarpListPos + global.warpsleft) % ds_list_size(global.wrongWarpList);
 global.floodtraptimer = 0;
 global.tosstraptimer = 0;
 global.shorttraptimer = 0;

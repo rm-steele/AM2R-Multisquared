@@ -38,6 +38,7 @@ if (active)
                 event_user(0);
             
             active = 0;
+            global.clearWrongWarps = 1;
         }
         
         if (global.curropt == 1)
