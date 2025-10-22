@@ -1340,12 +1340,14 @@ if (state == IDLE)
     {
         facing = RIGHT;
         canbehit = 1;
+        global.clearWrongWarps = 0;
     }
     
     if (juststarted == 0 && kLeft > 0)
     {
         facing = LEFT;
         canbehit = 1;
+        global.clearWrongWarps = 0;
     }
     
     if (facing != 0 && kRight == 0 && kLeft == 0)
