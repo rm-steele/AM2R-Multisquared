@@ -38,6 +38,7 @@ global.floodtraps = 0;
 global.touhoutraps = 0;
 global.ohkotraps = 0;
 global.wrongwarptraps = 0;
+global.icetraps = 0;
 global.equiptraptimer = 0;
 global.tosstraptimer = 0;
 global.shorttraptimer = 0;

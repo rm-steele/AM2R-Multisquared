@@ -85,6 +85,7 @@ switch (type_event)
             var ohkotrapcount = 0;
             var touhoutrapcount = 0;
             var wrongwarptrapcount = 0;
+            var icetrapcount = 0;
             var prevtanks = global.dnatanks;
             global.dnatanks = 0;
             var itemsList = ds_map_find_value(itemMap, "items");
@@ -154,6 +155,10 @@ switch (type_event)
                 else if (item == 27)
                 {
                     wrongwarptrapcount++;
+                }
+                else if (item == 28)
+                {
+                    icetrapcount++;
                 }
             }
 
@@ -265,7 +270,7 @@ switch (type_event)
                     popup_text("Bullet Hell Begin");
             }
 
-            if((wrongwarptrapcount - global.wrongwarptraps) > 0)
+            if ((wrongwarptrapcount - global.wrongwarptraps) > 0)
             {
                 if (!global.clearWrongWarps) // ignore receiving the first set of wrong warps coming from a "restart from last save"
                 {
@@ -281,6 +286,31 @@ switch (type_event)
                 }
             }
 
+            if ((icetrapcount - global.icetraps) > 0)
+            {
+                global.playerFreeze += 300 * (icetrapcount - global.icetraps);
+                global.frozenNormally = 1;
+
+                with (oControl)
+                {
+                    kLeft = 0;
+                    kRight = 0;
+                    kUp = 0;
+                    kDown = 0;
+                    kJump = 0;
+                    kFire = 0;
+                    kMorph = 0;
+                    kAim = 0;
+                    kAim2 = 0;
+                    kMissile = 0;
+                    kSelect = 0;
+                    kStart = 0;
+                }
+
+                if (alarm[0] <= 0)
+                    popup_text("Rollback Frozen");
+            }
+
             global.touhoutraps = touhoutrapcount;
             global.ohkotraps = ohkotrapcount;
             global.floodtraps = floodtrapcount;
@@ -288,6 +318,7 @@ switch (type_event)
             global.shorttraps = shorttrapcount;
             global.emptraps = emptrapcount;
             global.wrongwarptraps = wrongwarptrapcount;
+            global.icetraps = icetrapcount;
 
             if (receivedanything)
                 sfx_play(29);

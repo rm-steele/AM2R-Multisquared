@@ -6,3 +6,4 @@ global.emptraptimer = 0;
 global.ohkotraptimer = 0;
 global.touhoutraptimer = 0;
 global.warpsleft = 0;
+global.playerFreeze = 0;
