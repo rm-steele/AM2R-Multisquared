@@ -4149,29 +4149,36 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
         
         if (global.tosstraptimer == 0)
         {
-            damage_player_knockdown(0, choose(-1, 1), 0, 0, global.tossforce);
-            onfire = 60;
-            global.tossforce = 0;
-            var expl = instance_create(x, y, oExplosionSmoke);
-            expl.width = 64;
-            expl.height = 112;
-            expl.expl_dir = 180;
-            expl.expl_spd = 2;
-            expl.explosions = 10;
-            expl.smoke_steps = 60;
-            expl.density = 5;
-            
-            repeat (50)
+            if (state == BALL || state == AIRBALL || state == SPIDERBALL || ((state == SUPERJUMP || state == SJSTART || state == SJEND) && sjball == 1))
             {
-                var deb = instance_create(x, y + random_range(-64, 64), oDebris);
-                deb.alarm[0] = 60 + random(20);
-                deb.direction = random_range(150, 210);
-                deb.speed = 1 + random(6);
+                global.tosstraptimer += 60;
             }
-            
-            sfx_play(303);
-            screen_shake(30, 6);
-            instance_create(x, y, oScreenFlash);
+            else
+            {
+                damage_player_knockdown(0, choose(-1, 1), 0, 0, global.tossforce);
+                onfire = 60;
+                global.tossforce = 0;
+                var expl = instance_create(x, y, oExplosionSmoke);
+                expl.width = 64;
+                expl.height = 112;
+                expl.expl_dir = 180;
+                expl.expl_spd = 2;
+                expl.explosions = 10;
+                expl.smoke_steps = 60;
+                expl.density = 5;
+                
+                repeat (50)
+                {
+                    var deb = instance_create(x, y + random_range(-64, 64), oDebris);
+                    deb.alarm[0] = 60 + random(20);
+                    deb.direction = random_range(150, 210);
+                    deb.speed = 1 + random(6);
+                }
+                
+                sfx_play(303);
+                screen_shake(30, 6);
+                instance_create(x, y, oScreenFlash);
+            }
         }
     }
     
