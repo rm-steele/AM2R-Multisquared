@@ -21,26 +21,25 @@ if (header != "[AM2R SaveData V8.0]")
         return -1;
     }
 }
-{
-    if (oldSave)
-        sv6_get_main_old(fid);
-    else
-        sv6_get_main(fid);
 
-    file_text_readln(fid);
-    file_text_readln(fid);
-    file_text_readln(fid);
-    file_text_readln(fid);
-    file_text_readln(fid);
-    file_text_readln(fid);
-    file_text_readln(fid);
-    file_text_readln(fid);
-    sv6_get_random(fid);
-    file_text_readln(fid);
-    file_text_readln(fid);
-    sv6_get_seed(fid);
-    file_text_readln(fid);
-    file_text_close(fid);
-    file_delete(filename + "d");
-    return 1;
-}
+if (oldSave)
+    sv6_get_main_old(fid);
+else
+    sv6_get_main(fid);
+
+file_text_readln(fid);
+file_text_readln(fid);
+file_text_readln(fid);
+file_text_readln(fid);
+file_text_readln(fid);
+file_text_readln(fid);
+file_text_readln(fid);
+file_text_readln(fid);
+sv6_get_random(fid);
+file_text_readln(fid);
+file_text_readln(fid);
+sv6_get_seed(fid);
+file_text_readln(fid);
+file_text_close(fid);
+file_delete(filename + "d");
+return 1;
