@@ -4110,6 +4110,13 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
     
     if (global.floodtraptimer > 0)
     {
+        if (global.currentsuit == 2)
+        {
+            if (global.inventory[5])
+                global.currentsuit = 1;
+            else
+                global.currentsuit = 0;
+        }
         if (!instance_exists(oWater) && !instance_exists(oLavaSurface))
         {
             var liquid = instance_create(0, global.waterlevel, oWater);
@@ -4141,6 +4148,13 @@ if (state != IDLE && state != SAVING && state != SAVINGFX && state != SAVINGSHIP
         }
         
         global.floodtraptimer--;
+        
+        if (global.floodtraptimer == 0)
+        {
+            if (global.inventory[9])
+                global.currentsuit = 2;
+        }
+
     }
     
     if (global.tosstraptimer > 0)
