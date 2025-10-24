@@ -26,9 +26,10 @@ ds_list_add(list, global.wrongwarptraps);
 ds_list_add(list, ds_list_write(global.wrongWarpList));
 ds_list_add(list, global.wrongWarpListPos);
 ds_list_add(list, global.warpsleft);
+ds_list_add(list, global.icetraps);
 i = 0;
 
-repeat (36)
+repeat (35)
 {
     ds_list_add(list, 0);
     i += 1;
@@ -37,3 +38,4 @@ repeat (36)
 var str_list = ds_list_write(list);
 ds_list_clear(list);
 return str_list;
+    

@@ -29,4 +29,5 @@ global.wrongWarpList = ds_list_create();
 ds_list_read(global.wrongWarpList, readline());
 global.wrongWarpListPos = readline();
 global.warpsleft = readline();
+global.icetraps = readline();
 ds_list_clear(list);
