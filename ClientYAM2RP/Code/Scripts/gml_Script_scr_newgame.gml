@@ -42,3 +42,6 @@ else
 }
 
 global.monstersleft = 47;
+
+if (global.opfusionoverride != -1)
+    oControl.mod_fusion = global.opfusionoverride;

@@ -108,6 +108,9 @@ if (header != "[AM2R SaveData V8.0]")
     }
     
     room_change(global.start_room, 1);
+
+    if (global.opfusionoverride != -1)
+        oControl.mod_fusion = global.opfusionoverride;
 }
 
 if (instance_exists(oClient))
