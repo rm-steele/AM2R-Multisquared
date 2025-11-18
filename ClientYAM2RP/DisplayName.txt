@@ -1,1 +1,1 @@
-AM2R Multiworld 1.4.2-dev
+AM2R Multiworld 1.4.2
