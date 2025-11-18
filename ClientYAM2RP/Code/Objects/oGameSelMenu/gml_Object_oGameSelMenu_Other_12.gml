@@ -21,6 +21,9 @@ repeat (3)
             op[j].sprogress = string(round((global.itemstaken / 88) * 100));
             op[j].saveexists = file_exists(filename);
             op[j].sdifficulty = global.difficulty;
+
+            if (oControl.mod_diffmult == 4)
+                op[j].sdifficulty = 3;
             
             if (oControl.seed != "")
                 op[j].sseed = " [" + string(oControl.seed) + "]";
@@ -28,9 +31,7 @@ repeat (3)
                 op[j].sseed = "";
             
             op[j].smode = global.gamemode;
-            
-            if (oControl.mod_fusion == 1)
-                op[j].sdifficulty = 3;
+            op[j].sfusion = oControl.mod_fusion;
         }
         else
         {
