@@ -578,3 +578,4 @@ global.lastDamageIndex = 0;
 global.opmwcasesensitive = 0;
 global.freeForAll = 0;
 global.clearWrongWarps = 0;
+global.wrongWarpList = ds_list_create();

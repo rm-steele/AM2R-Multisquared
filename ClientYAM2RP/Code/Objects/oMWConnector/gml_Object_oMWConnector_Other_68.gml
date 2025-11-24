@@ -65,9 +65,7 @@ switch (type_event)
                 location = ds_map_find_next(locationsMap, location);
             }
 
-            global.wrongWarpList = ds_list_create();
             ds_list_copy(global.wrongWarpList, ds_map_find_value(itemMap, "trapseed"));
-
             popup_text("Seed Received");
             global.seedreceived = 1;
         }
