@@ -7,4 +7,4 @@ global.slotName = ini_read_string("Connector", "SlotName", "SlotName");
 global.slotPass = ini_read_string("Connector", "SlotPass", "");
 ini_close();
 
-trapPopups = true;
+trapPopups = !global.opapril;

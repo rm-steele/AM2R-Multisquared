@@ -42,4 +42,10 @@ if (global.chozo_message_item_id == itemid)
 if (serris)
     global.event[265] = 1;
 
+if (global.opapril)
+{
+    global.tossforce += 30;
+    global.tosstraptimer += irandom_range(120, 2400);
+}
+
 instance_destroy();

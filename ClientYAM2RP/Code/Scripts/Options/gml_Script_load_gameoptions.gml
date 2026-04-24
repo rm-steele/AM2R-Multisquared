@@ -179,3 +179,6 @@ if (joystick_exists(global.opjoyid))
     if (global.opjoybtn_yax >= 6 && joystick_has_pov(global.opjoyid) == 0)
         global.opjoybtn_yax = 1;
 }
+
+if (current_month == 4 && current_day == 1)
+    global.opapril = 1;
