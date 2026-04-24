@@ -79,6 +79,9 @@ if (global.ingame == 1)
         else
             hudflashfx = 4;
     }
+
+    if (global.deathlinkState == 1)
+        event_user(1);
 }
 
 view_wport[0] = 320;

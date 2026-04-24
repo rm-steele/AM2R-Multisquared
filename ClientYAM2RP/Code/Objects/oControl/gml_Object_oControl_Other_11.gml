@@ -1,5 +1,7 @@
 if (global.deathlinkState == 0)
     global.deathlinkState = 2;
+else if (global.deathlinkState == 1)
+    global.deathlinkState = 0;
 
 if (instance_exists(oClient) && oClient.connected)
 {

@@ -221,13 +221,13 @@ switch (type_event)
                 global.floodtraptimer += (1800 * (floodtrapcount - global.floodtraps));
                 screen_shake(30, 6);
                 sfx_play(80);
-                if (alarm[0] <= 0)
+                if (alarm[0] <= 0 && trapPopups)
                     popup_text("Pipe Burst Detected");
             }
 
             if ((tosstrapcount - global.tosstraps) > 0)
             {
-                if (alarm[0] <= 0)
+                if (alarm[0] <= 0 && trapPopups)
                     popup_text("TOSS Inbound");
                 receivedanything = 1;
                 global.tossforce += ((tosstrapcount - global.tosstraps) * 30);
@@ -240,7 +240,7 @@ switch (type_event)
             {
                 receivedanything = 1;
                 global.shorttraptimer += (1800 * (shorttrapcount - global.shorttraps));
-                if (alarm[0] <= 0)
+                if (alarm[0] <= 0 && trapPopups)
                     popup_text("Beam Energy Low");
             }
 
@@ -248,7 +248,7 @@ switch (type_event)
             {
                 receivedanything = 1;
                 global.emptraptimer += (1800 * (emptrapcount - global.emptraps));
-                if (alarm[0] <= 0)
+                if (alarm[0] <= 0 && trapPopups)
                     popup_text("Weapon Systems Disabled");
             }
 
@@ -256,7 +256,7 @@ switch (type_event)
             {
                 receivedanything = 1;
                 global.ohkotraptimer += (1800 * (ohkotrapcount - global.ohkotraps));
-                if (alarm[0] <= 0)
+                if (alarm[0] <= 0 && trapPopups)
                     popup_text("Energy Shield Update Installing");
             }
 
@@ -264,7 +264,7 @@ switch (type_event)
             {
                 receivedanything = 1;
                 global.touhoutraptimer += (900 * (touhoutrapcount - global.touhoutraps));
-                if (alarm[0] <= 0)
+                if (alarm[0] <= 0 && trapPopups)
                     popup_text("Bullet Hell Begin");
             }
 
@@ -274,8 +274,13 @@ switch (type_event)
                 {
                     receivedanything = 1;
                     global.warpsleft += (wrongwarptrapcount - global.wrongwarptraps);
-                    if (alarm[0] <= 0)
-                        popup_text("Curse of the Maze");
+                    if (alarm[0] <= 0 && trapPopups)
+                    {
+                        if (irandom(9) == 8)
+                            popup_text("Lost? Frightened? Confused? GOOD!");
+                        else
+                            popup_text("Curse of the Maze");
+                    }
                 }
                 else
                 {
@@ -305,7 +310,7 @@ switch (type_event)
                     kStart = 0;
                 }
 
-                if (alarm[0] <= 0)
+                if (alarm[0] <= 0 && trapPopups)
                     popup_text("Rollback Frozen");
             }
 
@@ -321,12 +326,10 @@ switch (type_event)
             if (receivedanything)
                 sfx_play(29);
         }
-        else if ((command == "deathlink" || command == "whatkillsyou") && instance_exists(oCharacter))
+        else if ((command == "deathlink" || command == "whatkillsyou"))
         {
             global.deathlinkState = 1; // 1 means receiving a deathlink (so don't send one)
             global.lastDamageIndex = oMWConnector;
-            with (oControl)
-                event_user(1);
         }
 
         var returnMap = ds_map_create();
@@ -359,7 +362,9 @@ switch (type_event)
         buffer_write(buffer, buffer_text, json_encode(returnMap));
         buffer_write(buffer, buffer_text, newline);
         var result = network_send_raw(socket, buffer, buffer_tell(buffer));
-        global.deathlinkState = 0; // now that it's been sent down the wire, clear it
+        if (global.deathlinkState == 2)
+            global.deathlinkState = 0; // now that it's been sent down the wire, clear it
+
         buffer_delete(buffer);
         ds_map_destroy(itemMap);
         ds_map_destroy(returnMap);
