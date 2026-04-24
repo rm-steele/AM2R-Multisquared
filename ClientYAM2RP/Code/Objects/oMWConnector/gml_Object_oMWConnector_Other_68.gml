@@ -335,7 +335,7 @@ switch (type_event)
         var returnMap = ds_map_create();
         var checkList = ds_list_create();
 
-        if (!is_on_menu())
+        if (!is_on_menu() && room != rm_transition)
         {
             for (var i = 0; i < 350; i++)
             {
